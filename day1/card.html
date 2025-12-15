@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Card</title>
+</head>
+
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+  <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  <script type="text/babel">
+    const data = [
+      { id: 1, productName: "Apple", Price: '$10' },
+      { id: 2, productName: "Mango", Price: '$20' },
+      { id: 3, productName: "bannana", Price: '$30' },
+      { id: 4, productName: "pineapple", Price: '$40' }
+
+    ]
+
+    const card = <> <div style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '50px' }}>
+      {data.map((fruit) => (
+
+        <div key={fruit.id} style={{ border: '1px, solid black', padding: '10px', borderRadius: '5px', textAlign: 'center' }}>
+          <p>{fruit.productName}</p>
+          <p>{fruit.Price}</p>
+          <button>Add to cart</button>
+        </div>
+
+      ))}
+      <p>Product Cost: ${productCost}</p>
+      
+    </div>
+    </>
+
+    
+
+
+    const soks = 10;
+    const tshirt = 20;
+    const productCost = soks + (tshirt * 2);
+    console.log(productCost);
+    console.log(dayjs().format('HH:mm:ss'));
+
+
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(card);
+  </script>
+</body>
+
+</html>
